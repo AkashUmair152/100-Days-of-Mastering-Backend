@@ -1,0 +1,2 @@
+Hello this is my first file I have created using the fs module AND I am using it to write this file
+This is the second line of the file
