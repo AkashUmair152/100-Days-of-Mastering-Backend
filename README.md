@@ -1,142 +1,230 @@
-# 🚀 100 Days of Mastering Backend Development
+# 🚀 100 Days of Backend Development Challenge
 
-This repository documents my journey through a structured 100-day plan to master backend development, focusing on Node.js, Express, Databases, REST APIs, Authentication, and more.
+**My journey to master Backend Development using Node.js, Express, MongoDB, and essential backend technologies.**
 
-Based on the comprehensive roadmap: [100 Days of Backend Development](100%20Days%20of%20Backend%20Development.docx)
+[![LinkedIn](https://img.shields.io/badge/Connect%20on-LinkedIn-blue?style=flat&logo=linkedin)](YOUR_LINKEDIN_PROFILE)
+[![#100DaysOfCode](https://img.shields.io/badge/%23-100DaysOfCode-000000.svg?style=flat&logo=codecademy)](https://www.100daysofcode.com/)
+[![#BackendDev](https://img.shields.io/badge/%23-BackendDev-43853d.svg?style=flat&logo=node.js&logoColor=white)](https://github.com/topics/backend)
 
-## 🎯 Goals
+## 📊 Progress Tracker
 
-By the end of this challenge, I aim to have a solid understanding and practical experience in:
+| Phase | Days | Status |
+| :--- | :--- | :--- |
+| **Phase 1: Node.js Fundamentals** | Days 1 - 15 | ✅ Completed |
+| **Phase 2: Databases & Data Persistence** | Days 16 - 35 | ✅ Completed |
+| **Phase 3: API Development & Security** | Days 36 - 60 | 🟡 In Progress |
+| **Phase 4: Advanced Backend Concepts** | Days 61 - 85 | ⏳ Upcoming |
+| **Phase 5: Capstone Project & Deployment** | Days 86 - 100 | ⏳ Upcoming |
 
-*   **Node.js Fundamentals:** Core modules, file system operations, NPM.
-*   **Web Servers & Frameworks:** Building servers with `http` and `Express.js`.
-*   **Databases:** Working with MongoDB and Mongoose ODM.
-*   **RESTful API Development:** Designing, building, testing, and securing APIs.
-*   **Authentication & Security:** Implementing JWT, securing APIs against common threats.
-*   **Advanced Backend Concepts:** File handling, WebSockets, Caching (Redis), Logging.
-*   **Project Structure & Best Practices:** Organizing code, configuration, linting.
-*   **Deployment:** Deploying a full-stack application to a cloud platform.
+## 📅 Detailed Progress Log (Days 1-100)
 
-## 📅 Structure & Progress
+### Phase 1 Overview: Node.js Fundamentals (Days 1-15)
 
-The challenge is divided into five main phases over 100 days:
+#### ✅ Days 1-2: Node.js Environment & Core Concepts
 
-| Phase | Duration | Topics | Status |
-| :--- | :--- | :--- | :--- |
-| **Phase 1: Node.js Fundamentals** | Days 1-15 | Node.js Core, NPM, `fs`, `http`, Express Intro | In Progress 🚧 |
-| **Phase 2: Databases & Data Persistence** | Days 16-35 | MongoDB, Mongoose, Relationships, Aggregation | Upcoming ⏳ |
-| **Phase 3: API Development & Security** | Days 36-60 | RESTful Design, Validation, JWT Auth, Security | Upcoming ⏳ |
-| **Phase 4: Advanced Backend Concepts** | Days 61-85 | File Uploads, WebSockets, Redis, Logging | Upcoming ⏳ |
-| **Phase 5: Capstone Project & Deployment** | Days 86-100 | Full-Stack Project, Deployment | Upcoming ⏳ |
+- [x] **Day 1:** Node.js Intro, Setup, Simple Scripts, CommonJS Modules
+- [x] **Day 2:** Core Modules (`os`, `path`, `fs` sync/async), CLI Tool Exercise
 
-### 📚 Detailed Roadmap
+#### ✅ Days 3-5: File System & NPM
 
+- [x] **Day 3:** Async `fs` with Callbacks/Promises
+- [x] **Day 4:** `package.json`, NPM Basics
+- [x] **Day 5:** Note-taking App Exercise
 
-**Phase 1: Node.js Fundamentals (Days 1-15)**
+#### ✅ Days 6-8: HTTP Server Basics
 
-*   **Days 1-2:** Node.js Environment & Core Concepts
-    *   Node.js overview, setup, basic scripts, CommonJS modules, core modules (`os`, `path`, `fs`).
-    *   **Exercise:** Build a simple CLI tool.
-*   **Days 3-5:** File System & NPM
-    *   Async file ops (callbacks/Promises), `package.json`, NPM basics.
-    *   **Exercise:** Create a simple note-taking app using `fs`.
-*   **Days 6-8:** HTTP Server Basics
-    *   Core `http` module, requests/responses, routing, static files, status codes, Nodemon.
-    *   **Exercise:** Build a simple API server with hardcoded data.
-*   **Days 9-11:** Architecture & Express.js Intro
-    *   MVC, REST principles, Express.js introduction and setup.
-    *   **Exercise:** Recreate the simple API server using Express.
-*   **Days 12-15:** Express.js Deep Dive
-    *   Routing, Middleware, serving static files.
-    *   **Exercise:** Build a small blog API with in-memory storage.
+- [x] **Day 6:** Core `http` Module Server, Routing, Serving Files
+- [x] **Day 7:** HTTP Status Codes, Intro `Nodemon`
+- [x] **Day 8:** Simple API Server Exercise
 
-**Phase 2: Databases & Data Persistence (Days 16-35)**
+#### ✅ Days 9-11: Architecture & Express.js Intro
 
-*   **Days 16-20:** Database Fundamentals & MongoDB
-    *   SQL vs NoSQL, MongoDB basics (Collections, Documents), setup, CRUD in shell/Compass.
-    *   **Exercise:** Practice MongoDB queries.
-*   **Days 21-25:** Mongoose ODM
-    *   Mongoose intro, connection, Schemas/Models, CRUD operations.
-    *   **Exercise:** Refactor blog API to use Mongoose/MongoDB.
-*   **Days 26-30:** Mongoose Relationships & Advanced Queries
-    *   Relationships, `populate()`, advanced queries (filtering, sorting, limiting).
-    *   **Exercise:** Add Users to blog API with relationships.
-*   **Days 31-35:** Database Optimization & Aggregation
-    *   Indexing, MongoDB Aggregation Pipeline.
-    *   **Exercise:** Implement indexing and aggregation in blog API.
+- [x] **Day 9:** MVC Concept, REST Principles
+- [x] **Day 10:** Express.js Intro, Setup
+- [x] **Day 11:** Express Server, Recreated API Exercise
 
-**Phase 3: API Development & Security (Days 36-60)**
+#### ✅ Days 12-15: Express.js Deep Dive
 
-*   **Days 36-40:** RESTful API Design & Testing
-    *   REST principles, API versioning, Postman.
-    *   **Exercise:** Refactor blog API to be RESTful and test with Postman.
-*   **Days 41-45:** API Validation & Error Handling
-    *   Input validation/sanitization, centralized error handling.
-    *   **Exercise:** Add validation and global error handling to blog API.
-*   **Days 46-50:** Authentication & Authorization (JWT)
-    *   Auth concepts, `bcryptjs`, JWT intro and implementation.
-    *   **Exercise:** Add JWT auth to blog API.
-*   **Days 51-55:** Advanced Authentication & Authorization
-    *   Protected routes, RBAC, password reset flow.
-    *   **Exercise:** Add roles and password reset to blog API.
-*   **Days 56-60:** API Security Best Practices
-    *   Common threats, `helmet`, `express-rate-limit`, CORS.
-    *   **Exercise:** Secure blog API with helmet, rate limiting, CORS.
+- [x] **Day 12:** Express Routing (`req.params`, `req.query`)
+- [x] **Day 13:** Middleware (Built-in, Third-party, Custom)
+- [x] **Day 14:** Serving Static Files, Blog API Exercise (In-memory)
+- [x] **Day 15:** Review & Practice
 
-**Phase 4: Advanced Backend Concepts (Days 61-85)**
+### Phase 2 Recap: Databases & Data Persistence (Days 16-35)
 
-*   **Days 61-65:** File Handling & Cloud Storage
-    *   File uploads (`multer`), cloud storage intro (Cloudinary, S3).
-    *   **Exercise:** Add image upload to blog API using cloud storage.
-*   **Days 66-70:** Real-time Communication (WebSockets)
-    *   WebSocket limitations, `socket.io`.
-    *   **Exercise:** Build a simple real-time chat app.
-*   **Days 71-75:** Caching Strategies
-    *   Caching concepts, Redis intro, integration.
-    *   **Exercise:** Implement Redis caching for blog API.
-*   **Days 76-80:** Logging & Monitoring
-    *   Importance of logging, `winston`/`pino`, `morgan`.
-    *   **Exercise:** Add logging to blog API.
-*   **Days 81-85:** Project Structure & Configuration
-    *   App organization, `dotenv`, `.gitignore`, `ESLint`/`Prettier`.
-    *   **Exercise:** Refactor blog API structure and add config/tools.
+#### ✅ Days 16-20: Database Fundamentals & MongoDB
 
-**Phase 5: Capstone Project & Deployment (Days 86-100)**
+- [x] **Day 16:** SQL vs NoSQL Concepts
+- [x] **Day 17:** MongoDB Intro (Collections, Documents)
+- [x] **Day 18:** MongoDB Setup (Local/Atlas)
+- [x] **Day 19:** Basic MongoDB CRUD (Shell/Compass)
+- [x] **Day 20:** MongoDB Query Practice
 
-*   **Days 86-95:** Build a Full-Stack Project
-    *   Choose and implement a substantial project using all concepts.
-    *   **Exercise:** Build, test, and refine the chosen project.
-*   **Days 96-100:** Deployment & DevOps Basics
-    *   Prep for production, choose deployment platform, deploy project.
-    *   **Exercise:** Deploy the capstone project successfully.
+#### ✅ Days 21-25: Mongoose ODM
 
-## 📖 Daily Log
+- [x] **Day 21:** Mongoose Intro, Connection
+- [x] **Day 22:** Schemas & Models
+- [x] **Day 23:** Mongoose CRUD Operations
+- [x] **Day 24:** Refactor Blog API to use Mongoose/MongoDB
+- [x] **Day 25:** Review & Practice
 
-See [daily-progress.md](daily-progress.md) for detailed updates on each day's activities and learnings.
+#### ✅ Days 26-30: Mongoose Relationships & Advanced Queries
 
-## 🛠️ Technologies Covered (Planned)
+- [x] **Day 26:** Relationships (Refs vs Embedded)
+- [x] **Day 27:** `populate()` for References
+- [x] **Day 28:** Advanced Queries (Filtering, Sorting, Limiting)
+- [x] **Day 29:** Add Users & Relationships to Blog API
+- [x] **Day 30:** Review & Practice
 
-*   Node.js
-*   Express.js
-*   MongoDB
-*   Mongoose
-*   REST APIs
-*   JWT Authentication
-*   Postman
-*   Socket.IO
-*   Redis
-*   Cloud Storage (e.g., Cloudinary)
-*   Deployment Platforms (e.g., Render, Railway)
+#### ✅ Days 31-35: Database Optimization & Aggregation
 
-## 🙌 Tips for Success (From the Roadmap)
+- [x] **Day 31:** Indexing Concepts
+- [x] **Day 32:** Basic MongoDB Indexing
+- [x] **Day 33:** Aggregation Pipeline Intro ($match, $group, $project)
+- [x] **Day 34:** Aggregation Practice (Stats in Blog API)
+- [x] **Day 35:** Review & Practice
 
-*   **Code Daily:** Consistency is key.
-*   **Build Projects:** Apply concepts by building small projects or features each phase.
-*   **Use Resources:** Leverage documentation, tutorials, and Stack Overflow.
-*   **Read Code:** Look at well-structured open-source Node.js projects.
-*   **Ask Questions:** Engage with developer communities if stuck.
-*   **Review & Reflect:** Regularly revisit previous concepts.
+### Phase 3 Overview: API Development & Security (Days 36-60)
 
----
+#### 🟡 Days 36-40: RESTful API Design & Testing
 
-Follow my journey as I work through this plan day by day!
+- [x] **Day 36:** RESTful Principles Deep Dive
+- [x] **Day 37:** API Versioning
+- [x] **Day 38:** Postman Intro & Testing
+- [ ] **Day 39:** Refactor Blog API (RESTful, Versioned, Postman Tests)
+- [ ] **Day 40:** Review & Practice
+
+#### 🟡 Days 41-45: API Validation & Error Handling
+
+- [ ] **Day 41:** Input Validation (`express-validator`/`joi`)
+- [ ] **Day 42:** Data Sanitization
+- [ ] **Day 43:** Centralized Error Handling Middleware
+- [ ] **Day 44:** Custom Error Classes, Secure Blog API Endpoints
+- [ ] **Day 45:** Review & Practice
+
+#### ⏳ Days 46-50: Authentication & Authorization (JWT)
+
+- [ ] **Day 46:** Auth Concepts (AuthN vs AuthZ)
+- [ ] **Day 47:** Password Hashing (`bcryptjs`)
+- [ ] **Day 48:** JWT Intro (Structure, Signing, Verification)
+- [ ] **Day 49:** JWT Auth Flow Implementation (Signup/Login)
+- [ ] **Day 50:** Secure Blog API with JWT
+
+#### ⏳ Days 51-55: Advanced Authentication & Authorization
+
+- [ ] **Day 51:** Protected Routes Middleware
+- [ ] **Day 52:** Role-Based Access Control (RBAC)
+- [ ] **Day 53:** Password Reset Flow
+- [ ] **Day 54:** Add Roles & Admin Features to Blog API
+- [ ] **Day 55:** Implement Password Reset
+
+#### ⏳ Days 56-60: API Security Best Practices
+
+- [ ] **Day 56:** Common Security Threats (CORS, Rate Limiting, etc.)
+- [ ] **Day 57:** Security Headers (`helmet`)
+- [ ] **Day 58:** Rate Limiting (`express-rate-limit`)
+- [ ] **Day 59:** CORS Configuration (`cors`)
+- [ ] **Day 60:** Secure Blog API (helmet, rate-limit, cors)
+
+### Phase 4 Details: Advanced Backend Concepts (Days 61-85)
+
+#### ⏳ Days 61-65: File Handling & Cloud Storage
+
+- [ ] **Day 61:** File Uploads (`multer`)
+- [ ] **Day 62:** Cloud Storage Intro (Cloudinary, AWS S3)
+- [ ] **Day 63:** Integrate Cloud Storage (e.g., Cloudinary)
+- [ ] **Day 64:** Add Image Upload to Blog Posts
+- [ ] **Day 65:** Review & Practice
+
+#### ⏳ Days 66-70: Real-time Communication (WebSockets)
+
+- [ ] **Day 66:** Limitations of HTTP, Intro to WebSockets
+- [ ] **Day 67:** `socket.io` Intro (Features, Rooms)
+- [ ] **Day 68:** Implement Basic Real-time Chat
+- [ ] **Day 69:** Simple Chat App Exercise
+- [ ] **Day 70:** Review & Practice
+
+#### ⏳ Days 71-75: Caching Strategies
+
+- [ ] **Day 71:** Caching Concepts & Benefits
+- [ ] **Day 72:** Redis Intro (Installation, Commands)
+- [ ] **Day 73:** Integrate Redis (`ioredis`)
+- [ ] **Day 74:** Implement Redis Caching (Blog Posts)
+- [ ] **Day 75:** Review & Practice
+
+#### ⏳ Days 76-80: Logging & Monitoring
+
+- [ ] **Day 76:** Importance of Logging
+- [ ] **Day 77:** Logging Libraries (`winston`, `pino`)
+- [ ] **Day 78:** HTTP Request Logging (`morgan`)
+- [ ] **Day 79:** Add Comprehensive Logging to Blog API
+- [ ] **Day 80:** Review & Practice
+
+#### ⏳ Days 81-85: Project Structure & Configuration
+
+- [ ] **Day 81:** Organizing Larger Apps (MVC, Folders)
+- [ ] **Day 82:** Environment Variables (`dotenv`)
+- [ ] **Day 83:** `.gitignore`, Code Quality (`ESLint`, `Prettier`)
+- [ ] **Day 84:** Refactor Blog API (Structure, Env Vars, Linting)
+- [ ] **Day 85:** Review & Practice
+
+### Phase 5 Details: Capstone Project & Deployment (Days 86-100)
+
+#### ⏳ Days 86-95: Build a Full-Stack Project
+
+- [ ] **Day 86:** Choose Capstone Project Idea
+- [ ] **Day 87:** Plan Features & Schema
+- [ ] **Day 88:** Start Backend Implementation
+- [ ] **Day 89:** Continue Building Core Features
+- [ ] **Day 90:** Add Auth, Validation, Error Handling
+- [ ] **Day 91:** Implement Security Measures
+- [ ] **Day 92:** Add Advanced Feature (e.g., File Upload, WS, Redis)
+- [ ] **Day 93:** Add Logging & Monitoring
+- [ ] **Day 94:** Thorough Testing (Postman, Manual)
+- [ ] **Day 95:** Refine & Polish Project
+
+#### ⏳ Days 96-100: Deployment & DevOps Basics
+
+- [ ] **Day 96:** Prepare for Production (Env Vars, Scripts)
+- [ ] **Day 97:** Choose Deployment Platform (Render/Railway/etc.)
+- [ ] **Day 98:** Deploy Backend & Connect to MongoDB Atlas
+- [ ] **Day 99:** Basic CI/CD Concepts
+- [ ] **Day 100:** Test Deployed API, Celebrate! 🎉
+
+## 🎯 Challenge Goals
+
+- Master **Node.js** fundamentals and core modules.
+- Build robust **RESTful APIs** using **Express.js**.
+- Gain proficiency in **MongoDB** (NoSQL database) and **Mongoose** (ODM).
+- Understand and implement **user authentication (JWT)** and **authorization (RBAC)**.
+- Learn essential **API security** practices.
+- Explore **advanced backend concepts** like file handling, real-time communication (WebSockets), caching (Redis), logging, and project structuring.
+- Develop a **full-stack capstone project** integrating all learned technologies.
+- Learn the basics of **deploying** a backend application.
+- Share progress daily on **LinkedIn** to build consistency and community engagement.
+
+## 🗺️ The Roadmap
+
+This 100-day challenge is structured into 5 main phases, designed to progressively build your backend development expertise:
+
+### Phase 1: Node.js Fundamentals (Days 1-15)
+
+Focus on understanding the core Node.js runtime, its event-driven architecture, CommonJS modules, file system operations, and basic NPM usage. Build simple command-line tools and servers.
+
+### Phase 2: Databases & Data Persistence (Days 16-35)
+
+Learn the fundamentals of databases, specifically **MongoDB** (NoSQL). Master **Mongoose ODM** for interacting with MongoDB in Node.js, including defining schemas, performing CRUD operations, and managing relationships. Explore optimization techniques like indexing and aggregation.
+
+### Phase 3: API Development & Security (Days 36-60)
+
+Deep dive into designing and building **RESTful APIs** with Express. Implement robust **input validation**, **centralized error handling**, and secure **user authentication (JWT)** and **authorization (RBAC)**. Learn and apply essential **API security** best practices to protect against common threats.
+
+### Phase 4: Advanced Backend Concepts (Days 61-85)
+
+Explore more advanced topics such as handling **file uploads** and integrating with **cloud storage**, implementing **real-time communication** with WebSockets, using **caching strategies** with Redis, setting up comprehensive **logging**, and structuring larger applications professionally.
+
+### Phase 5: Capstone Project & Deployment (Days 86-100)
+
+Apply all learned concepts to plan, build, and deploy a substantial **full-stack capstone project**. This will involve choosing an idea, planning features, implementing the backend with all necessary components (auth, validation, security, advanced features), thorough testing, and finally **deploying** the application to a cloud platform.
+
+## 📁 Repository Structure
