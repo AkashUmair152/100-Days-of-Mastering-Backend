@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title><%= title %></title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      text-align: center;
+      margin-top: 50px;
+      background-color: #f7f9fc;
+      color: #333;
+    }
+    .profile-card {
+      max-width: 400px;
+      margin: 0 auto;
+      padding: 30px;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    .back-link {
+      display: inline-block;
+      margin-top: 20px;
+      color: #007bff;
+      text-decoration: none;
+    }
+    .back-link:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="profile-card">
+    <h1><%= userName %>'s Profile</h1>
+    <p>Welcome to <%= userName %>'s personal profile page!</p>
+    <p>Explore more about their journey, achievements, and contributions.</p>
+    <a href="/" class="back-link">← Back to Home</a>
+  </div>
+</body>
+</html>
