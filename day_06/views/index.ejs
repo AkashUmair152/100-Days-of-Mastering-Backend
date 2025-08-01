@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Note Taking App</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Arial", sans-serif;
+      }
+
+      body {
+        background-color: #121212;
+        color: #e0e0e0;
+        min-height: 100vh;
+        padding: 20px;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      h1 {
+        text-align: center;
+        color: #bb86fc;
+        margin-bottom: 30px;
+        padding: 20px;
+        background-color: #1e1e1e;
+        border-radius: 10px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+      }
+
+      .form-container {
+        background-color: #1e1e1e;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        margin-bottom: 30px;
+        border: 1px solid #333;
+      }
+
+      .form-group {
+        margin-bottom: 20px;
+      }
+
+      label {
+        display: block;
+        margin-bottom: 8px;
+        color: #bb86fc;
+        font-weight: bold;
+        font-size: 16px;
+      }
+
+      input[type="text"],
+      textarea {
+        width: 100%;
+        padding: 12px;
+        background-color: #2d2d2d;
+        border: 1px solid #444;
+        border-radius: 5px;
+        color: #e0e0e0;
+        font-size: 16px;
+        transition: all 0.3s ease;
+      }
+
+      input[type="text"]:focus,
+      textarea:focus {
+        border-color: #bb86fc;
+        outline: none;
+        box-shadow: 0 0 0 2px rgba(187, 134, 252, 0.2);
+      }
+
+      textarea {
+        min-height: 120px;
+        resize: vertical;
+      }
+
+      .submit-btn {
+        background-color: #bb86fc;
+        color: #121212;
+        padding: 12px 30px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+        font-weight: bold;
+        transition: all 0.3s ease;
+        width: 100%;
+      }
+
+      .submit-btn:hover {
+        background-color: #9966cc;
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(187, 134, 252, 0.3);
+      }
+
+      .tasks-container {
+        display: grid;
+        align-items: center;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
+      }
+      .task-description{
+        margin-top: 10px;
+        color: #e0e0e0;
+        font-size: 14px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .task-description a {
+        color: #11d154;
+        text-decoration: none;
+        font-weight: bold;
+      }
+
+      .task-card {
+        background-color: #1e1e1e;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        border: 1px solid #333;
+        transition: all 0.3s ease;
+        height: 100%;
+      }
+
+      .task-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 25px rgba(187, 134, 252, 0.2);
+        border-color: #bb86fc;
+      }
+
+      .task-title {
+        font-size: 18px;
+        font-weight: bold;
+        color: #bb86fc;
+        margin-bottom: 12px;
+        padding-bottom: 8px;
+        border-bottom: 2px solid #333;
+      }
+
+      .task-card:hover .task-title {
+        border-bottom-color: #bb86fc;
+      }
+
+      .task-description {
+        color: #e0e0e0;
+        line-height: 1.6;
+        font-size: 15px;
+      }
+
+      @media (max-width: 1200px) {
+        .tasks-container {
+          grid-template-columns: repeat(3, 1fr);
+        }
+      }
+
+      @media (max-width: 900px) {
+        .tasks-container {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+
+      @media (max-width: 600px) {
+        .tasks-container {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      /* Additional styling for better dark theme experience */
+      .container {
+        padding: 20px;
+      }
+
+      .form-container,
+      .task-card {
+        backdrop-filter: blur(10px);
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <h1>Note Taking App</h1>
+
+      <div class="form-container">
+        <form id="task-form" action="/create" method="POST">
+          <div class="form-group">
+            <label for="task-title">Task Title</label>
+            <input
+              type="text"
+              id="task-title"
+              placeholder="Enter task title"
+              required
+              name="title"
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="task-description">Task Description</label>
+            <textarea
+              id="task-description"
+              placeholder="Enter task description"
+              required
+              name="description"
+            ></textarea>
+          </div>
+
+          <button type="submit" class="submit-btn">Add Task</button>
+        </form>
+      </div>
+      <div id="tasks-container" class="tasks-container">
+  <!-- Tasks will be added here dynamically -->
+  <% if (files && files.length > 0) { %>
+    <% files.forEach(function(val) { %>
+      <div class="task-card">
+        <div class="task-title"><%= val %></div>
+        <div class="task-description">
+            <a href="/task/<%= val %>">Read more</a>
+            <a href="/edit/<%= val %>">Edit</a>
+            <a href="/delete/<%= val %>">Delete</a>
+        </div>
+      </div>
+    <% }); %>
+  <% } else { %>
+    <div class="task-card">
+      <div class="task-title">No Tasks Available</div>
+      <div class="task-description">Please add a task to get started.</div>
+    </div>
+  <% } %>
+</div>
+    </div>
+  </body>
+</html>
