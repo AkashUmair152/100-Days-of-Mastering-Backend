@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>User Cards Dashboard</title>
+    <style>
+      /* Dark Theme Colors */
+      :root {
+        --bg-color: #121212;
+        --card-bg: #1e1e1e;
+        --primary-color: #bb86fc;
+        --text-color: #e0e0e0;
+        --text-secondary: #b0b0b0;
+        --border-color: #333333;
+        --hover-color: #9b6cec;
+        --delete-color: #cf6679;
+        --edit-color: #4caf50;
+        --delete-hover: #b55a68;
+        --edit-hover: #3d8b40;
+      }
+
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background-color: var(--bg-color);
+        color: var(--text-color);
+        margin: 0;
+        padding: 20px;
+        min-height: 100vh;
+      }
+
+      .page-header {
+        text-align: center;
+        margin-bottom: 40px;
+      }
+
+      .page-header h1 {
+        color: var(--primary-color);
+        margin: 0;
+        font-size: 2.5rem;
+        font-weight: 600;
+      }
+
+      .page-header p {
+        color: var(--text-secondary);
+        margin-top: 10px;
+        font-size: 1.1rem;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .users-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        justify-content: center;
+      }
+
+      .user-card {
+        background-color: var(--card-bg);
+        border-radius: 10px;
+        padding: 20px;
+        width: calc(25% - 15px);
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+
+      .user-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+      }
+
+      .user-avatar {
+        width: 70px;
+        height: 70px;
+        border-radius: 50%;
+        margin: 0 auto 15px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-weight: bold;
+        font-size: 28px;
+        background-size: cover;
+        background-position: center;
+        background-color: var(--primary-color);
+      }
+
+      .user-name {
+        font-size: 18px;
+        font-weight: 600;
+        margin-bottom: 5px;
+      }
+
+      .user-profession {
+        color: var(--text-secondary);
+        font-size: 14px;
+        margin-bottom: 8px;
+      }
+
+      .user-email {
+        color: var(--text-secondary);
+        font-size: 13px;
+        opacity: 0.8;
+        margin-bottom: 15px;
+        word-break: break-all;
+      }
+
+      .card-buttons {
+        display: flex;
+        gap: 10px;
+        width: 100%;
+      }
+
+      .no-users {
+        color: var(--text-secondary);
+        font-size: 18px;
+        text-align: center;
+        width: 100%;
+        padding: 40px 0;
+        opacity: 0.7;
+        font-style: italic;
+      }
+
+      .card-buttons a {
+        display: block;
+        text-decoration: none;
+        text-align: center;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        padding: 8px;
+        font-size: 14px;
+        font-weight: 500;
+        transition: all 0.3s ease;
+        flex-grow: 1;
+      }
+      .btn-edit {
+        background-color: var(--edit-color);
+        color: white;
+      }
+
+      .btn-edit:hover {
+        background-color: var(--edit-hover);
+        transform: translateY(-2px);
+      }
+
+      .btn-delete {
+        background-color: var(--delete-color);
+        color: white;
+      }
+
+      .btn-delete:hover {
+        background-color: var(--delete-hover);
+        transform: translateY(-2px);
+      }
+
+      .view-users-btn {
+        display: block;
+        width: 200px;
+        margin: 0 auto 20px;
+        text-align: center;
+        padding: 12px;
+        background-color: transparent;
+        color: var(--primary-color);
+        border: 1px solid var(--primary-color);
+        text-decoration: none;
+        border-radius: 6px;
+        transition: all 0.3s ease;
+      }
+
+      .view-users-btn:hover {
+        background-color: rgba(187, 134, 252, 0.1);
+        transform: translateY(-2px);
+      }
+
+      /* Responsive Design */
+      @media (max-width: 1200px) {
+        .user-card {
+          width: calc(33.33% - 15px);
+        }
+      }
+
+      @media (max-width: 900px) {
+        .user-card {
+          width: calc(50% - 15px);
+        }
+      }
+
+      @media (max-width: 600px) {
+        .user-card {
+          width: 100%;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .card-buttons {
+          gap: 5px;
+        }
+
+        .user-avatar {
+          width: 60px;
+          height: 60px;
+          font-size: 24px;
+        }
+
+        .page-header h1 {
+          font-size: 2rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <header class="page-header">
+        <h1>User Management</h1>
+        <p>Manage your team members efficiently</p>
+        <a href="/" class="view-users-btn">Back</a>
+      </header>
+
+      <div class="users-container">
+        <!-- User Cards -->
+        <% if (users && users.length > 0) { %> <% users.forEach(function(user) {
+        %>
+        <div class="user-card">
+          <div
+            class="user-avatar"
+            style="
+              background-image: url('<%= user.Image || 'https://i.pravatar.cc/150?u=' + user.userName %>');
+            "
+          ></div>
+          <div class="user-name"><%= user.userName %></div>
+          <div class="user-profession"><%= user.Profession %></div>
+          <div class="user-email"><%= user.email %></div>
+          <div class="card-buttons">
+            <a class="btn-edit" href="/edit/<%= user.id %>">Edit</a>
+            <a href="/delete/<%= user._id %>" class="btn-delete">Delete</a>
+          </div>
+        </div>
+        <% }); %> <% } else { %>
+        <p class="no-users">No users found</p>
+        <% } %>
+      </div>
+    </div>
+  </body>
+</html>
