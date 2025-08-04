@@ -74,6 +74,8 @@ app.post("/login", async (req, res) => {
     const isMatch = await bcrypt.compare(password, user.password);
     if (isMatch) {
       // ✅ Login successful
+      let token=  jwt.sign({email}, "akashUmair");
+      res.cookie("token", token)
       res.render("profile", {
       userName: user.userName,
       email: user.email,
