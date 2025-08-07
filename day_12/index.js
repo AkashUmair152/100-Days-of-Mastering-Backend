@@ -2,6 +2,7 @@
 const express = require("express");
 const path = require("path");
 const userModel = require("./model/user");
+const Post = require("./model/post");
 const cookieParser = require("cookie-parser");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
@@ -58,7 +59,7 @@ app.post("/register", async (req, res) => {
 app.get("/login", (req, res) => {
   // If already logged in, redirect to /user
   if (req.cookies.token) {
-    return res.redirect("/user");
+    return res.redirect("/profile");
   }
   res.render("login");
 });
@@ -88,7 +89,7 @@ app.post("/login", async (req, res) => {
   });
 
   // ✅ Redirect to /user (no data passed — that's fine)
-  res.redirect("/user");
+  res.redirect("/profile");
 });
 
 // Middleware: Protect routes
@@ -111,22 +112,65 @@ function isLogedin(req, res, next) {
 }
 
 // User Dashboard (Protected)
-app.get("/user", isLogedin, async (req, res) => {
+app.get("/profile", isLogedin, async (req, res) => {
   try {
     const user = await userModel.findOne({ email: req.user.email });
+    const posts = await Post.find({ user: user._id }).populate("user", "userName").sort({ createdAt: -1 });
     if (!user) {
       return res.status(404).send("User not found.");
     }
 
     // ✅ Render with data
-    res.render("user", {
+    res.render("profile", {
       userName: user.userName,
       email: user.email,
       age: user.age || "Not provided",
+      posts: posts,
     });
   } catch (err) {
     res.status(500).send("Something went wrong.");
   }
+});
+
+app.get("/create-post", isLogedin, (req, res) => {
+  res.render("create-post");
+});
+
+app.post("/create-post", isLogedin, async (req, res) => {
+  try {
+    const { title, content, image } = req.body;
+
+    const user = await userModel.findOne({ email: req.user.email });
+    if (!user) {
+      return res.status(404).send("User not found.");
+    }
+
+    // ✅ Create post with title, content, and optional image
+    await Post.create({
+      user: user._id,
+      title: title.trim(),
+      content: content.trim(),
+      image: image || undefined, // Let schema use default if empty
+    });
+
+    // ✅ Fetch updated posts
+    const posts = await Post.find({ user: user._id }).sort({ createdAt: -1 });
+
+    res.render("profile", {
+      userName: user.userName,
+      email: user.email,
+      age: user.age || "Not provided",
+      posts,
+    });
+  } catch (err) {
+    console.error(err);
+    res.status(500).send("Failed to create post.");
+  }
+});
+
+app.post("/like/:id", isLogedin, async (req, res) => {
+  await Post.findByIdAndUpdate(req.params.id, { $inc: { likes: 1 } });
+  res.redirect("/profile");
 });
 
 // Logout

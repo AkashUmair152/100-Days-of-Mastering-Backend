@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Your Profile</title>
+  <style>
+    /* Global Styles */
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #121212;
+      color: #e0e0e0;
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 40px auto;
+      padding: 20px;
+    }
+
+    /* Header Section */
+    .profile-header {
+      background-color: #1f1f1f;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+      margin-bottom: 30px;
+      text-align: center;
+    }
+
+    .profile-header h1 {
+      color: #bb86fc;
+      margin: 0 0 10px 0;
+    }
+
+    .profile-header p {
+      color: #b0b0b0;
+      margin-bottom: 20px;
+    }
+
+    .profile-info {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      flex-wrap: wrap;
+      margin-bottom: 10px;
+    }
+
+    .info-item {
+      text-align: center;
+    }
+
+    .info-item strong {
+      display: block;
+      color: #e0e0e0;
+      font-size: 0.95rem;
+    }
+
+    .info-item span {
+      color: #03dac6;
+      font-weight: 500;
+      font-size: 1.1rem;
+    }
+
+    .actions {
+      margin-top: 20px;
+      text-align: center;
+    }
+
+    .btn {
+      padding: 10px 20px;
+      margin: 0 10px;
+      font-size: 15px;
+      font-weight: bold;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .btn-primary {
+      background-color: #bb86fc;
+      color: #121212;
+    }
+
+    .btn-primary:hover {
+      background-color: #9966cc;
+    }
+
+    .btn-outline {
+      background-color: transparent;
+      color: #bb86fc;
+      border: 2px solid #bb86fc;
+    }
+
+    .btn-outline:hover {
+      background-color: #bb86fc;
+      color: #121212;
+    }
+
+    .back-home {
+      margin-top: 15px;
+    }
+
+    .back-home a {
+      color: #b0b0b0;
+      font-size: 0.9rem;
+      text-decoration: none;
+    }
+
+    .back-home a:hover {
+      color: #bb86fc;
+    }
+
+    /* Posts Section */
+    .posts-section {
+      margin-top: 30px;
+    }
+
+    .posts-section h2 {
+      color: #bb86fc;
+      text-align: center;
+      margin-bottom: 20px;
+      font-size: 1.8rem;
+    }
+
+    .posts-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .post-card {
+      background-color: #1f1f1f;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .post-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 15px rgba(0, 0, 0, 0.4);
+    }
+
+    .post-image {
+      width: 100%;
+      height: 180px;
+      background-color: #333;
+      background-size: cover;
+      background-position: center;
+    }
+
+    .post-content {
+      padding: 15px;
+    }
+
+    .post-title {
+      font-size: 1.1rem;
+      color: #e0e0e0;
+      margin: 0 0 8px 0;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .post-desc {
+      font-size: 0.95rem;
+      color: #b0b0b0;
+      margin: 0;
+    }
+
+    .post-footer {
+      margin-top: 10px;
+      font-size: 0.85rem;
+      color: #03dac6;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .like-form {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .like-btn {
+      background: none;
+      border: none;
+      font-size: 1.2rem;
+      cursor: pointer;
+      padding: 0;
+    }
+
+    .like-count {
+      font-weight: bold;
+    }
+
+    /* Responsive Adjustments */
+    @media (max-width: 768px) {
+      .container {
+        padding: 15px;
+      }
+
+      .profile-info {
+        gap: 20px;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .posts-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 480px) {
+      .posts-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- User Profile Header -->
+    <div class="profile-header">
+      <h1>Welcome, <span style="color:#bb86fc;"><%= userName %></span>!</h1>
+      <p>Here is your account information and your latest posts.</p>
+
+      <div class="profile-info">
+        <div class="info-item">
+          <strong>Username</strong>
+          <span><%= userName %></span>
+        </div>
+        <div class="info-item">
+          <strong>Email</strong>
+          <span><%= email %></span>
+        </div>
+        <div class="info-item">
+          <strong>Age</strong>
+          <span><%= age || "Not provided" %></span>
+        </div>
+      </div>
+
+      <div class="actions">
+        <a href="/create-post" class="btn btn-outline">Create Post</a>
+        <form action="/logout" method="POST" class="logout-form" style="display:inline;">
+          <button type="submit" class="btn btn-primary" 
+                  onclick="return confirm('Are you sure you want to log out?');">
+            Logout
+          </button>
+        </form>
+      </div>
+
+      <div class="back-home">
+        <a href="/">← Back to Home</a>
+      </div>
+    </div>
+
+    <!-- Posts Grid Section -->
+    <div class="posts-section">
+      <h2>Your Posts</h2>
+
+      <% if (posts && posts.length > 0) { %>
+        <div class="posts-grid">
+          <% posts.forEach(post => { %>
+            <div class="post-card">
+              <!-- Post Image -->
+              <div class="post-image" style="background-image: url('<%= post.image || 'https://via.placeholder.com/300x180/1f1f1f/333?text=No+Image' %>');"></div>
+
+              <!-- Post Content -->
+              <div class="post-content">
+                <h3 class="post-title"><%= post.title || 'Untitled Post' %></h3>
+                <p class="post-desc"><%= post.description || post.content || 'No description' %></p>
+
+                <!-- Likes & Like Button -->
+                <div class="post-footer">
+                  <span class="like-count"><%= post.likes %> Likes</span>
+                  <form class="like-form" action="/like/<%= post._id %>" method="POST">
+                    <button type="submit" class="like-btn" aria-label="Like this post">❤️</button>
+                  </form>
+                </div>
+              </div>
+            </div>
+          <% }); %>
+        </div>
+      <% } else { %>
+        <p style="text-align: center; color: #b0b0b0;">You haven't created any posts yet. <a href="/create-post" style="color:#bb86fc;">Create one now!</a></p>
+      <% } %>
+    </div>
+  </div>
+</body>
+</html>
