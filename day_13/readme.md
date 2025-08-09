@@ -47,12 +47,15 @@ cd day_13
 ```
 
 ### 2. Install dependencies
+
 ```bash
 npm install
 ```
 
 ### 3. Start MongoDB
+
 Make sure MongoDB is running locally:
+
 ```bash
 mongod
 ```
@@ -60,16 +63,19 @@ mongod
 > 💡 On Windows, you may need to run `net start MongoDB` or ensure the service is started.
 
 ### 4. Start the server
+
 ```bash
 node index.js
 ```
 
 Or with `nodemon` (if installed):
+
 ```bash
 npx nodemon index.js
 ```
 
 ### 5. Open in browser
+
 Visit: [http://localhost:3000](http://localhost:3000)
 
 ---
@@ -117,4 +123,5 @@ Built during 100 Days of Backend Mastery.
 
 Author: Akash  
 Date: 2025
+
 ```
