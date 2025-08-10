@@ -1,6 +1,9 @@
 const express = require("express");
 const path = require("path");
 const connectDB = require("./config/db");
+const ownersRouter = require("./routes/ownersRouter");
+const productsRouter = require("./routes/productsRouter");
+const usersRouter = require("./routes/usersRouter");
 
 const app = express();
 connectDB();
@@ -11,9 +14,9 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 
-app.get("/",(req, res)=>{
-    res.send ("Hello World");
-})
+app.use("/owners", ownersRouter);
+app.use("/users", usersRouter);
+app.use("/products", productsRouter);
 
 app.listen(3000, ()=>{
     console.log("Server is Running at http://localhost:3000/");
