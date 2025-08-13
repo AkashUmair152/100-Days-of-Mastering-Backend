@@ -1,5 +1,4 @@
 
----
 
 ```markdown
 ### day_17 Mastering Backend in 100 days
@@ -13,7 +12,7 @@ A clean, modern full-stack web application that displays a list of jokes fetched
 
 Live demo of concepts: [Frontend on port 5173](http://localhost:5173) ↔️ [Backend on port 3000](http://localhost:3000)
 
----
+
 
 ## 🚀 Features
 
@@ -84,13 +83,14 @@ npm run dev
 
 Tailwind CSS is fully configured in the frontend for utility-first styling.
 
-### Configuration Files:
+### Configuration Files
 
 - `tailwind.config.js`
 - `postcss.config.js`
 - `index.css` (with `@tailwind` directives)
 
-### Example Usage:
+### Example Usage
+
 ```jsx
 <div className="container p-6 max-w-2xl mx-auto bg-white rounded-lg shadow-md my-4">
   <h2 className="title text-xl font-bold text-gray-800">{joke.title}</h2>
@@ -109,6 +109,7 @@ Tailwind CSS is fully configured in the frontend for utility-first styling.
 Returns a JSON array of jokes.
 
 **Sample Response:**
+
 ```json
 [
   {
@@ -228,8 +229,3 @@ Developed as a learning project to demonstrate:
 - React + Express + Axios workflow
 
 Made with ❤️ using modern web technologies.
-
----
-```
-
----
