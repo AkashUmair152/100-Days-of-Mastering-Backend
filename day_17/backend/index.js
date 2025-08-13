@@ -46,7 +46,7 @@ app.get("/", (req, res)=>{
     res.send("Hello World ");
 })
 
-app.get("/jokes",(req,res)=>{
+app.get("/api/jokes",(req,res)=>{
 
     res.send(jokes);
 
