@@ -7,7 +7,7 @@ import fs from "fs";
         api_secret:process.env.CLOUDINARY_API_SECRET
     });
 
-export const uploadImageOnCloudinry = async (filePath) => {
+ const uploadImageOnCloudinry = async (filePath) => {
     if (!filePath) return null;
     try {
         const result = await cloudinary.uploader.upload(filePath, {
@@ -23,3 +23,5 @@ export const uploadImageOnCloudinry = async (filePath) => {
         throw error;
     }
 }
+
+export { uploadImageOnCloudinry };
