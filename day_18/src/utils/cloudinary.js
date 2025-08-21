@@ -14,7 +14,7 @@ import fs from "fs";
             folder: 'public', // Optional: specify a folder in Cloudinary
             resource_type: 'auto' // Automatically determine the resource type (image, video, etc.)
         });
-        console.log("Image uploaded successfully:", result.secure_url || result.url);
+        // console.log("Image uploaded successfully:", result.secure_url || result.url);
         
         fs.unlinkSync(filePath); // Remove the file after upload
         return result;
